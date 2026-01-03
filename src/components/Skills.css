@@ -1,0 +1,142 @@
+/* Skills Section - Gaming Card Design */
+.skills {
+  background: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  justify-items: center;
+}
+
+.skill-card {
+  background: rgba(20, 20, 30, 0.8);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.skill-card:hover {
+  border-color: #ff6b6b;
+  box-shadow: 
+    0 0 40px rgba(255, 107, 107, 0.3),
+    0 0 80px rgba(78, 205, 196, 0.2),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+  transform: translateY(-10px) scale(1.03);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #4ecdc4;
+  transition: all 0.4s ease;
+  text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: #ff6b6b;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+}
+
+.skill-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-level {
+  color: #4ecdc4;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+}
+
+.skill-description {
+  color: #b8b8b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Animation */
+.skill-card.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.skill-card.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .skill-card {
+    padding: 25px;
+  }
+  
+  .skill-icon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    gap: 16px;
+  }
+  
+  .skill-card {
+    padding: 20px;
+  }
+  
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+}

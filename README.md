@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React.js featuring a gaming/te
 
 ## 🚀 Live Demo
 
-[View Portfolio](https://your-deployed-url.com)
+[View Portfolio](https://krish-shokeen.onrender.com/)
 
 ## ✨ Features
 

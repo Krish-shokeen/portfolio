@@ -1,48 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import './Education.css';
 
 const Education = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const educationRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (educationRef.current) {
-      observer.observe(educationRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const educationData = [
     {
       degree: 'B.Tech in Computer Science (FSD)',
       institution: 'K.R. Mangalam University, Gurugram',
       duration: '2024 - 2028',
-      cgpa: '8.1 CGPA',
-      icon: 'fas fa-graduation-cap'
+      cgpa: '8.1 CGPA'
     },
     {
       degree: 'CBSE Class XII',
       institution: 'RAO MAN SINGH SSS, Najafgarh',
       duration: '2024',
-      cgpa: '75.4%',
-      icon: 'fas fa-school'
+      cgpa: '75.4%'
     },
     {
       degree: 'CBSE Class X',
       institution: 'RAO MAN SINGH SSS, Najafgarh',
       duration: '2022',
-      cgpa: '76.2%',
-      icon: 'fas fa-school'
+      cgpa: '76.2%'
     }
   ];
 
@@ -65,7 +42,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="education" ref={educationRef}>
+    <section id="education" className="education">
       <div className="container">
         <h2 className="section-title">Education & Certifications</h2>
         
@@ -73,14 +50,7 @@ const Education = () => {
           <div className="education-timeline">
             <h3 className="subsection-title">Academic Background</h3>
             {educationData.map((edu, index) => (
-              <div 
-                key={index} 
-                className={`timeline-item ${isVisible ? 'fade-in-up' : ''}`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="timeline-icon">
-                  <i className={edu.icon}></i>
-                </div>
+              <div key={index} className="timeline-item">
                 <div className="timeline-content">
                   <h4>{edu.degree}</h4>
                   <h5>{edu.institution}</h5>
@@ -97,11 +67,7 @@ const Education = () => {
             <h3 className="subsection-title">Certifications</h3>
             <div className="certifications-grid">
               {certifications.map((cert, index) => (
-                <div 
-                  key={index} 
-                  className={`cert-card ${isVisible ? 'fade-in-up' : ''}`}
-                  style={{ animationDelay: `${(index + 3) * 0.2}s` }}
-                >
+                <div key={index} className="cert-card">
                   <div className="cert-icon">
                     <i className={cert.icon}></i>
                   </div>
@@ -117,11 +83,7 @@ const Education = () => {
               <h3 className="subsection-title">Activities</h3>
               <ul className="activities-list">
                 {activities.map((activity, index) => (
-                  <li 
-                    key={index}
-                    className={`activity-item ${isVisible ? 'fade-in-up' : ''}`}
-                    style={{ animationDelay: `${(index + 5) * 0.2}s` }}
-                  >
+                  <li key={index} className="activity-item">
                     <i className="fas fa-trophy"></i>
                     {activity}
                   </li>

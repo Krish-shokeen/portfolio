@@ -224,6 +224,11 @@
     margin-left: 0;
     padding-left: 0;
     max-width: 100%;
+    order: 2;
+  }
+  
+  .hero-image {
+    order: 1;
   }
   
   .hero-title {

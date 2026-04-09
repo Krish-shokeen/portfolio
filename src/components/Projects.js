@@ -37,6 +37,15 @@ const Projects = () => {
       demo: 'https://greencart-1-s3ka.onrender.com/',
       icon: 'fas fa-shopping-cart',
       status: 'Completed'
+    },
+    {
+      title: 'SkyVault',
+      description: 'A simplified cloud file storage system similar to Google Drive. Users can upload, download, view, and delete files securely through a web interface with user authentication and cloud storage integration.',
+      technologies: ['Python', 'Flask', 'HTML', 'CSS', 'JavaScript', 'AWS S3'],
+      github: '',
+      demo: 'https://sky-vault-three.vercel.app/',
+      icon: 'fas fa-cloud-upload-alt',
+      status: 'Completed'
     }
   ];
 
@@ -69,10 +78,12 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="project-links">
-                    <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                      <i className="fab fa-github"></i>
-                      <span>GitHub</span>
-                    </a>
+                    {project.github && (
+                      <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i className="fab fa-github"></i>
+                        <span>GitHub</span>
+                      </a>
+                    )}
                     <a href={project.demo} className="project-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
                       <i className="fas fa-external-link-alt"></i>
                       <span>Demo</span>

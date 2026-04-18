@@ -7,7 +7,7 @@ const Education = () => {
       degree: 'B.Tech in Computer Science (FSD)',
       institution: 'K.R. Mangalam University, Gurugram',
       duration: '2024 - 2028',
-      cgpa: '8.1 CGPA'
+      cgpa: '8.27 CGPA'
     },
     {
       degree: 'CBSE Class XII',
@@ -37,14 +37,16 @@ const Education = () => {
   ];
 
   const activities = [
-    'Participated in Hackathons at KR Mangalam University, Gurugram',
-    'Participated in Hackathon at VGU Jaipur'
+    "Dean’s Honor Award – Semester 3",
+    "Hack KRMU Hackathon (2024)",
+    "ACIC VGU Designathon (2024)",
+    "Tech Fusion 3.0 Hackathon (2026)",
   ];
 
   return (
     <section id="education" className="education">
       <div className="container">
-        <h2 className="section-title">Education & Certifications</h2>
+        <h2 className="section-title">Education & Achievements</h2>
         
         <div className="education-content">
           <div className="education-timeline">

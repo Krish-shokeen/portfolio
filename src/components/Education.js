@@ -37,9 +37,11 @@ const Education = () => {
   ];
 
   const activities = [
+    'Participated in Hackathons at KR Mangalam University, Gurugram',
+    'Participated in Hackathon at VGU Jaipur',
     "Dean’s Honor Award – Semester 3",
     "Hack KRMU Hackathon (2024)",
-    "ACIC VGU Designathon (2024)",
+    "CODE RED 4.0 VGU Hackathon (2024)",
     "Tech Fusion 3.0 Hackathon (2026)",
   ];
 

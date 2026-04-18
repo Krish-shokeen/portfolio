@@ -42,7 +42,7 @@ const Projects = () => {
       title: 'SkyVault',
       description: 'A simplified cloud file storage system similar to Google Drive. Users can upload, download, view, and delete files securely through a web interface with user authentication and cloud storage integration.',
       technologies: ['Python', 'Flask', 'React.js', 'AWS S3'],
-      github: '',
+      github: 'https://github.com/Krish-shokeen/SkyVault',
       demo: 'https://sky-vault-three.vercel.app/',
       icon: 'fas fa-cloud-upload-alt',
       status: 'Completed'

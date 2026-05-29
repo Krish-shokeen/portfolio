@@ -29,23 +29,33 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Create mailto link as fallback (works without backend)
-    const mailtoLink = `mailto:krishshokeen55@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    
-    // Try to open email client
-    window.location.href = mailtoLink;
-    
-    // Simulate form submission feedback
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset status message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    }, 1000);
+    const TELEGRAM_BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+    const TELEGRAM_CHAT_ID = process.env.REACT_APP_TELEGRAM_CHAT_ID;
+
+    const message = `📬 New Portfolio Message\n\n👤 Name: ${formData.name}\n📧 Email: ${formData.email}\n📌 Subject: ${formData.subject}\n\n💬 Message:\n${formData.message}`;
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (err) {
+      setSubmitStatus('error');
+    }
+
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   return (
@@ -115,6 +125,11 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <div className="form-success">
                   <i className="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="form-error">
+                  <i className="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
                 </div>
               )}
               <button 

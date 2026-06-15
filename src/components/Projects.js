@@ -46,6 +46,15 @@ const Projects = () => {
       demo: 'https://sky-vault-three.vercel.app/',
       icon: 'fas fa-cloud-upload-alt',
       status: 'Completed'
+    },
+    {
+      title: 'Yappers Zone',
+      description: 'A full-stack real-time chat application featuring the Cosmic Canvas—a spatial, physics-driven dark UI for orbital conversations. Incorporates email OTP verification gates, end-to-end DM encryption via TweetNaCl, and live user status/read receipts.',
+      technologies: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Redis'],
+      github: 'https://github.com/Krish-shokeen/YAPPERS_ZONE',
+      demo: 'https://yappers-zone-h0lf.onrender.com',
+      icon: 'fas fa-user-astronaut',
+      status: 'Completed'
     }
   ];
 
@@ -84,10 +93,12 @@ const Projects = () => {
                         <span>GitHub</span>
                       </a>
                     )}
-                    <a href={project.demo} className="project-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
-                      <i className="fas fa-external-link-alt"></i>
-                      <span>Demo</span>
-                    </a>
+                    {project.demo && (
+                      <a href={project.demo} className="project-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                        <i className="fas fa-external-link-alt"></i>
+                        <span>Demo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
                 <div className="project-glow"></div>
